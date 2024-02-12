@@ -2,15 +2,27 @@
 import pygame
 # usa função
 pygame.init()
-x = 400
+# e a posição onde o carro vai aparecer
+#o pos_y controla autura onde o carro vai ficar
+#o pos_x 
+x = 450
 y = 300
+pos_x = 100
+pos_y = 300
 velocidade = 10
+velocidade_outros = 8
 fundo = pygame.image.load("pista.png")
 carro = pygame.image.load("carro3.png")
+jipe = pygame.image.load("jipe.png")
+jipe1 = pygame.image.load("jipe1.png")
+carro4 = pygame.image.load("carro4.png")
+
+
+
 # se não iniciar use o comando python -m pip install pygame
 
 # definindo tamanho da janela
-janela = pygame.display.set_mode ((800,600))
+janela = pygame.display.set_mode ((800,800))
 
 #vamos usar o metodo a baixo e onde vai fica o nome na janela que vai aparecer
 pygame.display.set_caption("Criando um jogo com python")
@@ -34,10 +46,18 @@ while janela_aberta :
     if comandos[pygame.K_LEFT]:
             x -=velocidade
     if comandos[pygame.K_RIGHT]:
-            x +=velocidade       
+            x +=velocidade   
+
+    if  (pos_y <= -200):
+        pos_y = 600
+
+    pos_y  -= velocidade_outros     
 
     janela.blit(fundo,(0,0))  
     janela.blit(carro,(x,y))
+    janela.blit(jipe, (pos_x + 180, pos_y))
+    janela.blit(jipe1, (pos_x + 280, pos_y))
+    janela.blit(carro4, (pos_x +100, pos_y))
 
 
     pygame.display.update()
