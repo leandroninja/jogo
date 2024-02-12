@@ -5,6 +5,8 @@ pygame.init()
 x = 400
 y = 300
 velocidade = 10
+fundo = pygame.image.load("pista.png")
+carro = pygame.image.load("carro3.png")
 # se não iniciar use o comando python -m pip install pygame
 
 # definindo tamanho da janela
@@ -34,10 +36,16 @@ while janela_aberta :
     if comandos[pygame.K_RIGHT]:
             x +=velocidade       
 
-    janela.fill((0,0,0))                   
+    janela.blit(fundo,(0,0))  
+    janela.blit(carro,(x,y))
 
 
-    pygame.draw.circle(janela, (0,255,0),(x, y),50) 
     pygame.display.update()
+
+
+
+   # o trexo de codigo a baixo desenha um circulo na tela
+   # pygame.draw.circle(janela, (0,255,0),(x, y),50) 
+    #pygame.display.update()
 
 pygame.quit()        
