@@ -7,8 +7,10 @@ pygame.init()
 #o pos_x 
 x = 450
 y = 300
-pos_x = 100
+pos_x = 300
 pos_y = 300
+pos_y_a = 300
+pos_y_c = 300
 velocidade = 10
 velocidade_outros = 8
 fundo = pygame.image.load("pista.png")
@@ -49,15 +51,19 @@ while janela_aberta :
             x +=velocidade   
 
     if  (pos_y <= -200):
-        pos_y = 600
+         pos_y = 600
+         pos_y_a = 600 
+         pos_y_c = 600 
 
-    pos_y  -= velocidade_outros     
+    pos_y  -= velocidade_outros 
+    pos_y_a -= velocidade_outros + 2
+    pos_y_c -= velocidade_outros + 5    
 
     janela.blit(fundo,(0,0))  
     janela.blit(carro,(x,y))
-    janela.blit(jipe, (pos_x + 300, pos_y))
-    janela.blit(jipe1, (pos_x + 240, pos_y))
-    janela.blit(carro4, (pos_x +200, pos_y))
+    janela.blit(jipe, (pos_x + 100, pos_y))
+    janela.blit(jipe1, (pos_x + 40, pos_y_a))
+    janela.blit(carro4, (pos_x + 10, pos_y_c))
 
 
     pygame.display.update()
