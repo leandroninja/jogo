@@ -13,7 +13,11 @@ pos_x = 300
 pos_y = 600
 pos_y_a = 600
 pos_y_c = 600
+timer = 0
+tempo_segundo = 0
+
 velocidade = 10
+
 velocidade_outros = 5
 fundo = pygame.image.load("pista.png")
 carro = pygame.image.load("carro5.png")
@@ -21,6 +25,10 @@ jipe = pygame.image.load("jipe.png")
 jipe1 = pygame.image.load("jipe1.png")
 carro4 = pygame.image.load("carro4.png")
 
+font = pygame.font.SysFont ('arial black',30)
+texto = font.render("tempo: ",True,(255,255,255),(0,0,0))
+pos_texto = texto.get_rect()
+pos_texto.center = (70,20)
 
 
 # se não iniciar use o comando python -m pip install pygame
@@ -56,6 +64,18 @@ while janela_aberta :
          pos_y = randint (800, 2000)
          pos_y_a = randint (800, 2000)
          pos_y_c = randint (800, 2000) 
+
+#logica do if else todo esse bloco de codigo esta dentro do while esse while tem delay que atualiza a tela a cada 50 mls
+ #mas a ideia e que a variavel seja incrementada a cada 1 seg ou seja vai passar pelo while 20 vezes a cada 50 mils       
+  # e quando der 1 seg vai cair no else
+  
+    if  (timer <20):
+         timer +=1
+
+    else:  
+          tempo_segundo +=1
+          texto = font.render("tempo: "+str(tempo_segundo),True,(255,255,255),(0,0,0))
+          timer = 0  
 #a função a baixo muda a posição dos carros no eixo y
     pos_y  -= velocidade_outros
     pos_y_a -= velocidade_outros -2
@@ -66,8 +86,7 @@ while janela_aberta :
     janela.blit(jipe, (pos_x + 100, pos_y))
     janela.blit(jipe1, (pos_x + 80, pos_y_a))
     janela.blit(carro4, (pos_x + 70, pos_y_c))
-
-
+    janela.blit(texto,pos_texto)
     pygame.display.update()
 
 
