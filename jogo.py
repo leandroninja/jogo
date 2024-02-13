@@ -55,9 +55,9 @@ while janela_aberta :
 
     janela.blit(fundo,(0,0))  
     janela.blit(carro,(x,y))
-    janela.blit(jipe, (pos_x + 180, pos_y))
-    janela.blit(jipe1, (pos_x + 280, pos_y))
-    janela.blit(carro4, (pos_x +100, pos_y))
+    janela.blit(jipe, (pos_x + 300, pos_y))
+    janela.blit(jipe1, (pos_x + 260, pos_y))
+    janela.blit(carro4, (pos_x +180, pos_y))
 
 
     pygame.display.update()
