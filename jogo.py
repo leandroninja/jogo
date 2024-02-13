@@ -22,7 +22,7 @@ carro4 = pygame.image.load("carro4.png")
 # se não iniciar use o comando python -m pip install pygame
 
 # definindo tamanho da janela
-janela = pygame.display.set_mode ((800,800))
+janela = pygame.display.set_mode ((800,500))
 
 #vamos usar o metodo a baixo e onde vai fica o nome na janela que vai aparecer
 pygame.display.set_caption("Criando um jogo com python")
@@ -56,8 +56,8 @@ while janela_aberta :
     janela.blit(fundo,(0,0))  
     janela.blit(carro,(x,y))
     janela.blit(jipe, (pos_x + 300, pos_y))
-    janela.blit(jipe1, (pos_x + 260, pos_y))
-    janela.blit(carro4, (pos_x +180, pos_y))
+    janela.blit(jipe1, (pos_x + 240, pos_y))
+    janela.blit(carro4, (pos_x +200, pos_y))
 
 
     pygame.display.update()
