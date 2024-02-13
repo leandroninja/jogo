@@ -17,6 +17,10 @@ pos_y_c = 600
 pos_y_d = 600
 pos_y_e = 600
 pos_y_f = 600
+pos_y_g = 600
+pos_y_h = 600
+pos_y_i = 600
+pos_y_j = 600
 timer = 0
 tempo_segundo = 0
 
@@ -29,6 +33,10 @@ carro2 = pygame.image.load("carro2.png")
 carro3 = pygame.image.load("carro3.png")
 carro4 = pygame.image.load("carro4.png")
 carro5 = pygame.image.load("carro5.png")
+carro6 = pygame.image.load("carro6.png")
+carro7 = pygame.image.load("carro7.png")
+carro8 = pygame.image.load("carro8.png")
+carro9 = pygame.image.load("carro9.png")
 jipe = pygame.image.load("jipe.png")
 jipe1 = pygame.image.load("jipe1.png")
 
@@ -67,7 +75,7 @@ while janela_aberta :
     if comandos[pygame.K_RIGHT] and x<= 620:      #445
             x += velocidade   
 #com esse if a baixo resetamos a posição dos carros apos passarem pela pista
-    if  (pos_y <= -180) and (pos_y_a <= -180) and (pos_y_b <= -180) and (pos_y_c <= -180) and (pos_y_d <= -180) and (pos_y_e <= -180):
+    if  (pos_y <= -180) and (pos_y_a <= -180) and (pos_y_b <= -180) and (pos_y_c <= -180) and (pos_y_d <= -180) and (pos_y_e <= -180) and (pos_y_f <= -180) and (pos_y_g <= -180) and (pos_y_h <= -180) and (pos_y_i <= -180) and (pos_y_j <= -180):
          pos_y = randint (1000, 1500)
          pos_y_a = randint (1000, 1400)
          pos_y_b = randint (1000, 1300)
@@ -75,6 +83,10 @@ while janela_aberta :
          pos_y_d = randint (1000, 1100)
          pos_y_e = randint (900, 1000)
          pos_y_f = randint (800, 900)
+         pos_y_g = randint (700, 800)
+         pos_y_h = randint (600, 700)
+         pos_y_i = randint (500, 600)
+         pos_y_j = randint (400, 500)
 
 #logica do if else todo esse bloco de codigo esta dentro do while esse while tem delay que atualiza a tela a cada 50 mls
  #mas a ideia e que a variavel seja incrementada a cada 1 seg ou seja vai passar pelo while 20 vezes a cada 50 mils       
@@ -94,18 +106,23 @@ while janela_aberta :
     pos_y_c -= velocidade_outros - 2
     pos_y_d -= velocidade_outros - 1
     pos_y_e -= velocidade_outros - 2 
-    pos_y_f -= velocidade_outros - 1    
-
-
-
-
-
+    pos_y_f -= velocidade_outros - 1 
+    pos_y_g -= velocidade_outros - 1
+    pos_y_h -= velocidade_outros - 1
+    pos_y_i -= velocidade_outros - 1
+    pos_y_j -= velocidade_outros - 1
+       
     janela.blit(fundo,(0,0))  
     janela.blit(carro,(x,y))
     janela.blit(carro2, (pos_x + 60, pos_y_b))
     janela.blit(carro3, (pos_x + 120, pos_y_c))
     janela.blit(carro4, (pos_x + 240, pos_y_d))
-    janela.blit(carro5, (pos_x + -50, pos_y_f))
+    janela.blit(carro5, (pos_x + -50, pos_y_e))
+    janela.blit(carro6, (pos_x + -20, pos_y_f))
+    janela.blit(carro7, (pos_x + -80, pos_y_g))
+    janela.blit(carro8, (pos_x + -10, pos_y_h))
+    janela.blit(carro9, (pos_x + +50, pos_y_i))
+    janela.blit(carro5, (pos_x + 150, pos_y_j))
     janela.blit(jipe, (pos_x + 100, pos_y))
     janela.blit(jipe1, (pos_x - 90 , pos_y_a))
     
