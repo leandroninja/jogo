@@ -8,7 +8,7 @@ pygame.init()
 #o pos_y controla a altura onde o carro vai ficar
 #o pos_x 
 x = 360       #valor max a esquerda 308, max dir 445,meio 370
-y = 100
+y = 180
 pos_x = 300
 pos_y = 600
 pos_y_a = 600
@@ -71,23 +71,57 @@ while janela_aberta :
     if comandos[pygame.K_DOWN]:
             y +=velocidade
     if comandos[pygame.K_LEFT] and x>= 125:       #308
-            x -= velocidade                        #na pista propria
+            x -= velocidade                       #na pista propria
     if comandos[pygame.K_RIGHT] and x<= 620:      #445
             x += velocidade   
-#com esse if a baixo resetamos a posição dos carros apos passarem pela pista
-    if  (pos_y <= -180) and (pos_y_a <= -180) and (pos_y_b <= -180) and (pos_y_c <= -180) and (pos_y_d <= -180) and (pos_y_e <= -180) and (pos_y_f <= -180) and (pos_y_g <= -180) and (pos_y_h <= -180) and (pos_y_i <= -180) and (pos_y_j <= -180):
-         pos_y = randint (1000, 1500)
-         pos_y_a = randint (1000, 1400)
-         pos_y_b = randint (1000, 1300)
-         pos_y_c = randint (1000, 1200) 
-         pos_y_d = randint (1000, 1100)
-         pos_y_e = randint (900, 1000)
-         pos_y_f = randint (800, 900)
-         pos_y_g = randint (700, 800)
-         pos_y_h = randint (600, 700)
-         pos_y_i = randint (500, 600)
-         pos_y_j = randint (400, 500)
 
+            # detecta a colisão
+
+    if  (x + 80 > pos_x and y + 120 > pos_y):       # colisão lado direito
+         y = 1200 
+
+    if  (x - 80 < pos_x - 100 and y + 120 > pos_y):     #colisão lado esquerdo
+         y = 1200
+
+    if  (x + 80 > pos_x and y + 120 > pos_y) or (x - 80 < pos_x - 100 and y + 120 > pos_y):
+         y = 1200
+
+
+#com esse if a baixo resetamos a posição dos carros apos passarem pela pista
+    if  (pos_y <= -80) :
+         pos_y = randint (1000, 1500)
+
+    if  (pos_y_a <= -80):
+         pos_y_a = randint (1000, 1400)
+        
+    if  (pos_y_b <= -80) : 
+         pos_y_b = randint (1000, 1300)
+        
+    if  (pos_y_c <= -80) :
+         pos_y_c = randint (1000, 1200)
+        
+    if  (pos_y_d <= -80):
+         pos_y_d = randint (1000, 1100)
+
+    if  (pos_y_e <= -80) :
+         pos_y_e = randint (900, 1000)   
+
+    if  (pos_y_f <= -80) :          
+         pos_y_f = randint (800, 900)
+
+    if  (pos_y_g <= -80) :
+         pos_y_g = randint (700, 800)
+
+    if   (pos_y_h <= -80) :
+          pos_y_h = randint (600, 700)
+
+    if  (pos_y_i <= -80) :
+         pos_y_i = randint (500, 600)
+
+    if  (pos_y_j <= -80) :
+         pos_y_j = randint (400, 500)
+                  
+        
 #logica do if else todo esse bloco de codigo esta dentro do while esse while tem delay que atualiza a tela a cada 50 mls
  #mas a ideia e que a variavel seja incrementada a cada 1 seg ou seja vai passar pelo while 20 vezes a cada 50 mils       
   # e quando der 1 seg vai cair no else
@@ -100,7 +134,7 @@ while janela_aberta :
           texto = font.render("tempo: "+str(tempo_segundo),True,(255,255,255),(0,0,0))
           timer = 0  
 #a função a baixo muda a posição dos carros no eixo y
-    pos_y  -= velocidade_outros
+    pos_y  -= velocidade_outros -1
     pos_y_a -= velocidade_outros -2
     pos_y_b -= velocidade_outros - 1 
     pos_y_c -= velocidade_outros - 2
@@ -137,4 +171,4 @@ while janela_aberta :
    # pygame.draw.circle(janela, (0,255,0),(x, y),50) 
     #pygame.display.update()
 
-pygame.quit()        
+pygame.quit()
