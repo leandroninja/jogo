@@ -157,7 +157,7 @@ while janela_aberta :
     janela.blit(carro8, (pos_x + -10, pos_y_h))
     janela.blit(carro9, (pos_x + +50, pos_y_i))
     janela.blit(carro5, (pos_x + 150, pos_y_j))
-    janela.blit(jipe, (pos_x + 100, pos_y))
+    janela.blit(jipe, (pos_x + 110, pos_y))
     janela.blit(jipe1, (pos_x - 90 , pos_y_a))
     
 
