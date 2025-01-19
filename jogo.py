@@ -76,15 +76,13 @@ while janela_aberta :
             x += velocidade   
 
             # detecta a colisão
+    largura_carro = 80
+    altura_carro = 120
 
-    if  (x + 80 > pos_x and y + 120 > pos_y):       # colisão lado direito
-         y = 1200 
-
-    if  (x - 80 < pos_x - 100 and y + 120 > pos_y):     #colisão lado esquerdo
-         y = 1200
-
-    if  (x + 80 > pos_x and y + 120 > pos_y) or (x - 80 < pos_x - 100 and y + 120 > pos_y):
-         y = 1200
+    if (x < pos_x + largura_carro and x + largura_carro > pos_x and
+            y < pos_y + altura_carro and y + altura_carro > pos_y):
+        # colisão detectada
+        y = 1200
 
 
 #com esse if a baixo resetamos a posição dos carros apos passarem pela pista
